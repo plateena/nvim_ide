@@ -14,32 +14,103 @@ local packer_bootstrap = ensure_packer()
 return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
 
-    -- My plugins here
+    -- Colorscheme
     use {
-        'nvim-telescope/telescope.nvim', tag = '0.1.0',
-        -- or                            , branch = '0.1.x',
-        requires = { {'nvim-lua/plenary.nvim'} }
+        "EdenEast/nightfox.nvim",
+        "ellisonleao/gruvbox.nvim" ,
+        "savq/melange",
+        'Mofiqul/dracula.nvim',
+        'NTBBloodbath/doom-one.nvim',
+        'Shatur/neovim-ayu',
+        'bluz71/vim-moonfly-colors',
+        'bluz71/vim-nightfly-guicolors',
+        'folke/tokyonight.nvim',
+        'patstockwell/vim-monokai-tasty',
+        'rmehri01/onenord.nvim',
+        { 'lalitmee/cobalt2.nvim', requires = 'tjdevries/colorbuddy.nvim' },
+        { 'luisiacc/gruvbox-baby', branch = 'main'},
     }
 
-  use { 'majutsushi/tagbar' }                        -- code structure
-  use { 'Yggdroot/indentLine' }                      -- see indentation
-  use { 'tpope/vim-fugitive' }                       -- git integration
-  use { 'junegunn/gv.vim' }                          -- commit history
-  use { 'windwp/nvim-autopairs' }                    -- auto close brackets, etc.
+    -- My plugins here
 
-    -- Colorscheme
-    use 'bluz71/vim-nightfly-guicolors'
-    use { "ellisonleao/gruvbox.nvim" }
-    use 'bluz71/vim-moonfly-colors'
-    use 'patstockwell/vim-monokai-tasty'
-    use "savq/melange"
-    use 'folke/tokyonight.nvim'
-    use "EdenEast/nightfox.nvim"
-    use { 'lalitmee/cobalt2.nvim', requires = 'tjdevries/colorbuddy.nvim' }
-    use 'rmehri01/onenord.nvim'
-    use 'Shatur/neovim-ayu'
-    use { 'luisiacc/gruvbox-baby', branch = 'main'}
-    use { 'NTBBloodbath/doom-one.nvim'}
+    -- Tools
+    use {
+        'tpope/vim-fugitive',                        -- git integration
+        'majutsushi/tagbar',                         -- code structure
+        { 'kyazdani42/nvim-tree.lua', requires = { 'kyazdani42/nvim-web-devicons' } },
+        { 'nvim-telescope/telescope.nvim', tag = '0.1.0', requires = { 'nvim-lua/plenary.nvim' } },
+        "kelly-lin/telescope-ag",
+    }
+
+    -- Vimwiki
+    use {
+        'vimwiki/vimwiki', 
+    }
+
+    use 'plateena/taskwiki'
+
+    -- PHP
+    use 'noahfrederick/vim-laravel'
+    use { 'phpactor/phpactor', tag = '*', run = 'composer install --no-dev -o'}
+    use {
+        'praem90/nvim-phpcsf',
+        config = function()
+            require("phpcs").cs()
+            require("phpcs").cbf()
+        end
+    }
+    -- Editor 
+    use {
+        "rafamadriz/friendly-snippets",
+        "mattn/emmet-vim",
+        "machakann/vim-sandwich",
+        "folke/todo-comments.nvim",
+        'tpope/vim-commentary',
+        'nvim-treesitter/nvim-treesitter',
+        'JoosepAlviste/nvim-ts-context-commentstring'
+    }
+
+    use {
+        'prettier/vim-prettier', 
+        run = 'npm install --frozen-lockfile --production'
+    }
+
+    -- Linter
+    use {
+        'neovim/nvim-lspconfig', -- Configurations for Nvim LSP
+        'williamboman/nvim-lsp-installer', 
+        "folke/trouble.nvim",
+    }
+
+    -- Completion
+    use {
+        'hrsh7th/cmp-nvim-lsp',
+        'hrsh7th/cmp-buffer',
+        'hrsh7th/cmp-path',
+        'hrsh7th/cmp-cmdline',
+        'hrsh7th/nvim-cmp',
+
+        'hrsh7th/cmp-vsnip',
+        'hrsh7th/vim-vsnip',
+    }
+
+
+    -- Theme
+    use {
+        'NvChad/nvim-colorizer.lua',
+        'nvim-tree/nvim-web-devicons',
+        'DanilaMihailov/beacon.nvim',                -- cursor jump
+        'Yggdroot/indentLine',                       -- see indentation
+        'nvim-lualine/lualine.nvim',                     -- statusline
+    }
+
+    -- Less important
+    use {
+        "nvim-telescope/telescope-file-browser.nvim", -- filesystem navigation
+        'windwp/nvim-autopairs',                    -- auto close brackets, etc.
+        'junegunn/gv.vim',                          -- commit history
+        { 'weilbith/nvim-code-action-menu', cmd = { 'CodeActionMenu'} }
+    }
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
