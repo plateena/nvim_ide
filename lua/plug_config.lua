@@ -1,3 +1,6 @@
+local opts = { noremap=true, silent=false }
+vim.keymap.set('n', '\\gs', ':Git<CR>', opts)
+
 require('telescope').setup({
     defaults = {
         layout_config = {
