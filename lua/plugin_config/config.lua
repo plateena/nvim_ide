@@ -1,4 +1,7 @@
 local opts = { noremap=true, silent=false }
+
+require("utils.check-module")
+
 vim.keymap.set('n', '\\gs', ':Git<CR>', opts)
 
 require('nvim-tree').setup{}
@@ -9,7 +12,10 @@ require('lualine').setup {
     }
 }
 
-require('nvim-autopairs').setup{}
+if isModuleAvailable('nvim-autopairs') then
+    require('nvim-autopairs').setup{}
+end
+
 require('trouble').setup{}
 require('todo-comments').setup{}
 require('nvim-treesitter.configs').setup{
@@ -36,5 +42,6 @@ require('lspconfig').phpactor.setup{
 require "plugin_config.telescope"
 require "plugin_config.lualine"
 require "plugin_config.nvim-cmp"
+require "plugin_config.nvim-tree"
 
 vim.cmd("let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]")

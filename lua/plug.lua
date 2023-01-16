@@ -1,3 +1,4 @@
+
 local ensure_packer = function()
     local fn = vim.fn
     local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
@@ -59,6 +60,7 @@ return require('packer').startup(function(use)
             require("phpcs").cbf()
         end
     }
+
     -- Editor 
     use {
         "rafamadriz/friendly-snippets",
@@ -105,9 +107,9 @@ return require('packer').startup(function(use)
     }
 
     -- Less important
+    use { 'windwp/nvim-autopairs' , cond = false }                    -- auto close brackets, etc.
     use {
         "nvim-telescope/telescope-file-browser.nvim", -- filesystem navigation
-        'windwp/nvim-autopairs',                    -- auto close brackets, etc.
         'junegunn/gv.vim',                          -- commit history
         { 'weilbith/nvim-code-action-menu', cmd = { 'CodeActionMenu'} }
     }

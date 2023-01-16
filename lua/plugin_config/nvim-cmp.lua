@@ -10,7 +10,7 @@ autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 " autocmd BufRead,BufNewFile *.md setlocal spell
 ]], true)
 
-local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+-- local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 local cmp = require'cmp'
 --local lspkind = require'lspkind'
 
@@ -47,7 +47,7 @@ cmp.setup({
   mapping = {
     ['<C-d>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
     ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
-    ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
+    ['<C-s>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
     ['<C-y>'] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
     ['<C-e>'] = cmp.mapping({
       i = cmp.mapping.abort(),
@@ -115,10 +115,10 @@ cmp.setup.cmdline(':', {
     })
 })
 
-cmp.event:on(
-  'confirm_done',
-  cmp_autopairs.on_confirm_done()
-)
+-- cmp.event:on(
+--   'confirm_done',
+--   cmp_autopairs.on_confirm_done()
+-- )
 
 
 map = vim.api.nvim_set_keymap
