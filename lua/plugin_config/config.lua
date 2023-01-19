@@ -39,9 +39,10 @@ require('lspconfig').phpactor.setup{
     }
 }
 
-require "plugin_config.telescope"
 require "plugin_config.lualine"
 require "plugin_config.nvim-cmp"
 require "plugin_config.nvim-tree"
+require "plugin_config.telescope"
+require 'plugin_config.hop'
 
 vim.cmd("let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]")
