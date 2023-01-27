@@ -16,6 +16,14 @@ if isModuleAvailable('nvim-autopairs') then
     require('nvim-autopairs').setup{}
 end
 
+if isModuleAvailable('Comment') then
+    require('Comment').setup()
+end
+
+if isModuleAvailable('hop') then
+    require 'plugin_config.hop'
+end
+
 require('trouble').setup{}
 require('todo-comments').setup{}
 require('nvim-treesitter.configs').setup{
@@ -43,6 +51,6 @@ require "plugin_config.lualine"
 require "plugin_config.nvim-cmp"
 require "plugin_config.nvim-tree"
 require "plugin_config.telescope"
-require 'plugin_config.hop'
+
 
 vim.cmd("let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]")
