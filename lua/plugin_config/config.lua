@@ -16,6 +16,10 @@ if isModuleAvailable('nvim-autopairs') then
     require('nvim-autopairs').setup{}
 end
 
+if isModuleAvailable('Comment') then
+    require('Comment').setup()
+end
+
 require('trouble').setup{}
 require('todo-comments').setup{}
 require('nvim-treesitter.configs').setup{

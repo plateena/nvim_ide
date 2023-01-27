@@ -67,8 +67,9 @@ return require('packer').startup(function(use)
         "mattn/emmet-vim",
         "machakann/vim-sandwich",
         "folke/todo-comments.nvim",
-        'tpope/vim-commentary',
         'nvim-treesitter/nvim-treesitter',
+        -- 'tpope/vim-commentary',
+        'numToStr/Comment.nvim',
         'JoosepAlviste/nvim-ts-context-commentstring'
     }
 
