@@ -67,12 +67,11 @@ return require('packer').startup(function(use)
         "machakann/vim-sandwich",
         "mattn/emmet-vim",
         "rafamadriz/friendly-snippets",
-        'JoosepAlviste/nvim-ts-context-commentstring'
+        'JoosepAlviste/nvim-ts-context-commentstring',
         'numToStr/Comment.nvim',
         'nvim-treesitter/nvim-treesitter',
-        'tpope/vim-commentary',
         -- 'tpope/vim-commentary',
-        { 'phaazon/hop.nvim', branch = 'v2' }, 
+        { 'phaazon/hop.nvim', branch = 'v2' } 
     }
 
     use {
