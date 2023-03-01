@@ -120,6 +120,13 @@ return require('packer').startup(function(use)
         { 'weilbith/nvim-code-action-menu', cmd = { 'CodeActionMenu'} }
     }
 
+    use {
+        "folke/noice.nvim", requires = {
+            "MunifTanjim/nui.nvim",
+            "rcarriga/nvim-notify",
+        }
+    }
+
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if packer_bootstrap then

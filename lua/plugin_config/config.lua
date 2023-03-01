@@ -31,6 +31,10 @@ end
 require('trouble').setup{}
 require('todo-comments').setup{}
 require('nvim-treesitter.configs').setup{
+    ensure_installed = {
+        "lua", "vim", "scss", "css", "php", "javascript", "typescript",
+        "markdown", "markdown_inline", "regex", "bash"
+    },
     context_commentstring = {
         enable = true,
         commentary_integration = {
@@ -62,6 +66,27 @@ require('lspconfig').phpactor.setup{
         ["language_server_psalm.enabled"] = false,
     }
 }
+
+require("noice").setup({
+    cmdline = { 
+        enabled = true,
+        view = "cmdline"
+    },
+    lsp = {
+        override = {
+            ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+            ["vim.lsp.util.stylize_markdown"] = true,
+            ["cmp.entry.get_documentation"] = true,
+        }
+    },
+    presets = {
+        bottom_search = true,
+        command_palette = true,
+        long_message_to_split = true,
+        inc_rename = false,
+        lsp_doc_border = false,
+    }
+})
 
 require("typescript").setup({})
 
