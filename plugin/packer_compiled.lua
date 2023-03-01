@@ -74,6 +74,11 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  ["Comment.nvim"] = {
+    loaded = true,
+    path = "/home/zack/.local/share/nvim/site/pack/packer/start/Comment.nvim",
+    url = "https://github.com/numToStr/Comment.nvim"
+  },
   ["beacon.nvim"] = {
     loaded = true,
     path = "/home/zack/.local/share/nvim/site/pack/packer/start/beacon.nvim",
@@ -148,6 +153,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/zack/.local/share/nvim/site/pack/packer/start/gv.vim",
     url = "https://github.com/junegunn/gv.vim"
+  },
+  ["hop.nvim"] = {
+    loaded = true,
+    path = "/home/zack/.local/share/nvim/site/pack/packer/start/hop.nvim",
+    url = "https://github.com/phaazon/hop.nvim"
   },
   indentLine = {
     loaded = true,
@@ -240,11 +250,6 @@ _G.packer_plugins = {
     path = "/home/zack/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
   },
-  phpactor = {
-    loaded = true,
-    path = "/home/zack/.local/share/nvim/site/pack/packer/start/phpactor",
-    url = "https://github.com/phpactor/phpactor"
-  },
   ["plenary.nvim"] = {
     loaded = true,
     path = "/home/zack/.local/share/nvim/site/pack/packer/start/plenary.nvim",
@@ -289,11 +294,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/zack/.local/share/nvim/site/pack/packer/start/trouble.nvim",
     url = "https://github.com/folke/trouble.nvim"
-  },
-  ["vim-commentary"] = {
-    loaded = true,
-    path = "/home/zack/.local/share/nvim/site/pack/packer/start/vim-commentary",
-    url = "https://github.com/tpope/vim-commentary"
   },
   ["vim-fugitive"] = {
     loaded = true,

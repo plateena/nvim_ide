@@ -24,6 +24,10 @@ if isModuleAvailable('hop') then
     require 'plugin_config.hop'
 end
 
+-- if isModuleAvailable('vsnip') then
+-- require 'plugin_config.vsnip'
+-- end
+
 require('trouble').setup{}
 require('todo-comments').setup{}
 require('nvim-treesitter.configs').setup{
@@ -38,6 +42,18 @@ require('nvim-treesitter.configs').setup{
     }
 }
 
+require("mason").setup{};
+require("mason-lspconfig").setup()
+require("nvim-lsp-installer").setup({
+    automatic_installation = true, -- automatically detect which servers to install (based on which servers are set up via lspconfig)
+    ui = {
+        icons = {
+            server_installed = "✓",
+            server_pending = "➜",
+            server_uninstalled = "✗"
+        }
+    }
+})
 require('lspconfig').pyright.setup{}
 require('lspconfig').phpactor.setup{
     on_attach = on_attach,
@@ -47,7 +63,10 @@ require('lspconfig').phpactor.setup{
     }
 }
 
+require("typescript").setup({})
+
 require "plugin_config.lualine"
+require "plugin_config.lspconfig"
 require "plugin_config.nvim-cmp"
 require "plugin_config.nvim-tree"
 require "plugin_config.telescope"

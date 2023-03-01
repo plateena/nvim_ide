@@ -53,13 +53,13 @@ return require('packer').startup(function(use)
     -- PHP
     use 'noahfrederick/vim-laravel'
     use { 'phpactor/phpactor', tag = '*', run = 'composer install --no-dev -o'}
-    use {
-        'praem90/nvim-phpcsf',
-        config = function()
-            require("phpcs").cs()
-            require("phpcs").cbf()
-        end
-    }
+    -- use {
+    --     'praem90/nvim-phpcsf',
+    --     config = function()
+    --         require("phpcs").cs()
+    --         require("phpcs").cbf()
+    --     end
+    -- }
 
     -- Editor 
     use {
@@ -70,6 +70,8 @@ return require('packer').startup(function(use)
         'JoosepAlviste/nvim-ts-context-commentstring',
         'numToStr/Comment.nvim',
         'nvim-treesitter/nvim-treesitter',
+        "lambdalisue/suda.vim",
+        "jose-elias-alvarez/typescript.nvim",
         -- 'tpope/vim-commentary',
         { 'phaazon/hop.nvim', branch = 'v2' } 
     }
@@ -81,9 +83,11 @@ return require('packer').startup(function(use)
 
     -- Linter
     use {
-        'neovim/nvim-lspconfig', -- Configurations for Nvim LSP
-        'williamboman/nvim-lsp-installer', 
         "folke/trouble.nvim",
+        "williamboman/mason.nvim",
+        "williamboman/mason-lspconfig.nvim",
+        'williamboman/nvim-lsp-installer',
+        'neovim/nvim-lspconfig' -- Configurations for Nvim LSP
     }
 
     -- Completion
