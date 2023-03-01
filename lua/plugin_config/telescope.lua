@@ -12,7 +12,8 @@ map('n', '<C-t>f', ':Telescope current_buffer_fuzzy_find<CR>', {})
 map('n', '<C-t>t', ':Telescope tags<CR>', {})
 
 -- local telescope = require("telescope")
-local telescope = require("telescope").load_extension("noice")
+require("telescope").load_extension("noice")
+local telescope = require("telescope").load_extension("fzf")
 local telescopeConfig = require("telescope.config")
 local previewers = require("telescope.previewers")
 local Job = require("plenary.job")
@@ -79,6 +80,12 @@ require("telescope").setup {
         }
     },
     extensions = {
+        fzf = {
+            fuzzy = true,
+            override_generic_sorter = true,
+            override_file_sorter = true,
+            case_mode = "smart_case",
+        },
         file_browser = {
             theme = "ivy",
             -- disables netrw and use telescope-file-browser in its place

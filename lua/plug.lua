@@ -40,6 +40,7 @@ return require('packer').startup(function(use)
         'majutsushi/tagbar',                         -- code structure
         { 'kyazdani42/nvim-tree.lua', requires = { 'kyazdani42/nvim-web-devicons' } },
         { 'nvim-telescope/telescope.nvim', tag = '0.1.0', requires = { 'nvim-lua/plenary.nvim' } },
+        { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
         "kelly-lin/telescope-ag",
         "voldikss/vim-floaterm",
     }
