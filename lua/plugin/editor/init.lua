@@ -24,7 +24,7 @@ local plugs = {
     },
     "lambdalisue/suda.vim",
     -- 'tpope/vim-commentary',
-    { 'phaazon/hop.nvim', disable = true, branch = 'v2' },
+    -- { 'phaazon/hop.nvim', disable = true, branch = 'v2' },
 
     'hrsh7th/cmp-vsnip',
     'hrsh7th/vim-vsnip',

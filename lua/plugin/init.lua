@@ -77,10 +77,6 @@ packer.startup(function(use)
 
     use 'plateena/taskwiki'
 
-    -- Linter
-    use {
-        "folke/trouble.nvim",
-    }
 
     -- Theme
     use {

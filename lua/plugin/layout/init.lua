@@ -16,6 +16,12 @@ local plugs = {
     -- },
     'majutsushi/tagbar' ,                        -- code structure
     "voldikss/vim-floaterm",
+    {
+        "folke/trouble.nvim",
+        config = function()
+            require('trouble').setup({})
+        end
+    },
 }
 
 M.plugins = function(use)

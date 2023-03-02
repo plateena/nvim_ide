@@ -2,11 +2,6 @@ require("utils")
 
 local opts = { noremap=true, silent=false }
 
-if isModuleAvailable('Comment') then
-    require('Comment').setup()
-end
-
-require('trouble').setup{}
 require('todo-comments').setup{}
 require('nvim-treesitter.configs').setup{
     ensure_installed = {
