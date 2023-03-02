@@ -3,14 +3,13 @@ local M  = {}
 
 local modules = {
     'nvim-treesitter',
+    'nvim-cmp',
 }
 
 local plugs = {
-    'hrsh7th/cmp-nvim-lsp',
     'hrsh7th/cmp-buffer',
     'hrsh7th/cmp-path',
     'hrsh7th/cmp-cmdline',
-    'hrsh7th/nvim-cmp',
 }
 
 M.plugins = function(use)

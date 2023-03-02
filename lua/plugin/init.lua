@@ -23,6 +23,7 @@ local function get_plugins(use)
         "language",
         "git",
         "layout",
+        "lsp",
     }
 
     for _, mode in pairs(modules) do
