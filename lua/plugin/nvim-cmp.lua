@@ -1,19 +1,35 @@
--- vim.api.nvim_exec([[
--- " autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
--- " autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
--- " autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global=1
--- " autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
--- " autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
--- " autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
--- " autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
--- " autocmd FileType php set omnifunc=phpcomplete#CompletePHP
--- " autocmd BufRead,BufNewFile *.md setlocal spell
--- ]], true)
-
--- local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 local cmp = require'cmp'
 --local lspkind = require'lspkind'
 
+--   פּ ﯟ   some other good icons
+local kind_icons = {
+    Text = "",
+    Method = "m",
+    Function = "",
+    Constructor = "",
+    Field = "",
+    Variable = "",
+    Class = "",
+    Interface = "",
+    Module = "",
+    Property = "",
+    Unit = "",
+    Value = "",
+    Enum = "",
+    Keyword = "",
+    Snippet = "",
+    Color = "",
+    File = "",
+    Reference = "",
+    Folder = "",
+    EnumMember = "",
+    Constant = "",
+    Struct = "",
+    Event = "",
+    Operator = "",
+    TypeParameter = "",
+}
+-- find more here: https://www.nerdfonts.com/cheat-sheet
 local function border(hl_name)
     --[[ { "┏", "━", "┓", "┃", "┛","━", "┗", "┃" }, ]]
     --[[ {"─", "│", "─", "│", "┌", "┐", "┘", "└"}, ]]
@@ -55,7 +71,10 @@ cmp.setup({
     },
     mapping = cmp.mapping.preset.insert({
         ["<A-l>"] = cmp.mapping.complete(),
-        ["<C-e>"] = cmp.mapping.abort(),
+        ["<C-e>"] = cmp.mapping({
+            i = cmp.mapping.abort(),
+            c = cmp.mapping.close(),
+        }),
         ["<CR>"] = cmp.mapping.confirm({select = true}),
         ['<Tab>'] = cmp.mapping(function(fallback)
             if cmp.visible() then
@@ -82,19 +101,24 @@ cmp.setup({
     }),
 
     formatting = {
-        --    format = lspkind.cmp_format({
-        --      mode = 'symbol_text',
-        --      maxwidth = 50,
-        --
-        --      before = function (entry, vim_item)
-        --        return vim_item
-        --      end
-        --    })
+        fields = { "kind", "abbr", "menu" },
+        format = function(entry, vim_item)
+            -- Kind icons
+            vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
+            -- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
+            vim_item.menu = ({
+                nvim_lsp = "[LSP]",
+                luasnip = "[Snippet]",
+                buffer = "[Buffer]",
+                path = "[Path]",
+            })[entry.source.name]
+            return vim_item
+        end,
     },
 
     sources = cmp.config.sources({
-        { name = 'nvim_lsp' },
         { name = 'vsnip' },
+        { name = 'nvim_lsp' },
         { name = 'path' },
         { name = 'calc' },
         { name = 'treesitter' },
@@ -102,6 +126,11 @@ cmp.setup({
         { name = 'rg' },
     }, {
         { name = 'buffer' },
+    }),
+
+    experimental = ({
+        ghost_text = true,
+        native_menu = false,
     }),
 
 })

@@ -34,6 +34,12 @@ return require('packer').startup(function(use)
 
     -- My plugins here
 
+    -- Engine
+
+    use {
+        'thesafdarawan/lazy-loader.nvim'
+    }
+
     -- Tools
     use {
         'tpope/vim-fugitive',                        -- git integration
@@ -73,7 +79,7 @@ return require('packer').startup(function(use)
         'numToStr/Comment.nvim',
         'nvim-treesitter/nvim-treesitter',
         "lambdalisue/suda.vim",
-        "jose-elias-alvarez/typescript.nvim",
+        -- "jose-elias-alvarez/typescript.nvim",
         -- 'tpope/vim-commentary',
         { 'phaazon/hop.nvim', branch = 'v2' } 
     }

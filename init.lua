@@ -1,7 +1,5 @@
 require "keymaps"
-require "config"
+require "options"
 require "filetype"
-require "plug"
-require "plugin_config.config"
+require "plugin"
 
-vim.cmd 'colorscheme ayu-mirage'

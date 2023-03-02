@@ -1,16 +1,8 @@
+require("utils")
+
 local opts = { noremap=true, silent=false }
 
-require("utils.check-module")
-
-vim.keymap.set('n', '\\gs', ':Git<CR>', opts)
-
 require('nvim-tree').setup{}
-
-require('lualine').setup {
-    options = {
-        theme = 'dracula-nvim'
-    }
-}
 
 if isModuleAvailable('nvim-autopairs') then
     require('nvim-autopairs').setup{}
@@ -21,11 +13,11 @@ if isModuleAvailable('Comment') then
 end
 
 if isModuleAvailable('hop') then
-    require 'plugin_config.hop'
+    require 'plugin.hop'
 end
 
 -- if isModuleAvailable('vsnip') then
--- require 'plugin_config.vsnip'
+-- require 'plugin.vsnip'
 -- end
 
 require('trouble').setup{}
@@ -67,34 +59,13 @@ require('lspconfig').phpactor.setup{
     }
 }
 
-require("noice").setup({
-    cmdline = { 
-        enabled = true,
-        view = "cmdline"
-    },
-    lsp = {
-        override = {
-            ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-            ["vim.lsp.util.stylize_markdown"] = true,
-            ["cmp.entry.get_documentation"] = true,
-        }
-    },
-    presets = {
-        bottom_search = true,
-        command_palette = true,
-        long_message_to_split = true,
-        inc_rename = false,
-        lsp_doc_border = false,
-    }
-})
 
-require("typescript").setup({})
 
-require "plugin_config.lualine"
-require "plugin_config.lspconfig"
-require "plugin_config.nvim-cmp"
-require "plugin_config.nvim-tree"
-require "plugin_config.telescope"
+require "plugin.lualine"
+require "plugin.lspconfig"
+require "plugin.nvim-cmp"
+require "plugin.nvim-tree"
+-- require "plugin.telescope"
 
 
 vim.cmd("let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]")

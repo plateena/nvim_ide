@@ -14,7 +14,7 @@ _G._packer.inside_compile = true
 
 local time
 local profile_info
-local should_profile = true
+local should_profile = false
 if should_profile then
   local hrtime = vim.loop.hrtime
   profile_info = {}
@@ -130,14 +130,21 @@ _G.packer_plugins = {
     url = "https://github.com/Mofiqul/dracula.nvim"
   },
   ["emmet-vim"] = {
-    loaded = true,
-    path = "/home/zack/.local/share/nvim/site/pack/packer/start/emmet-vim",
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "/home/zack/.local/share/nvim/site/pack/packer/opt/emmet-vim",
     url = "https://github.com/mattn/emmet-vim"
   },
   ["friendly-snippets"] = {
     loaded = true,
     path = "/home/zack/.local/share/nvim/site/pack/packer/start/friendly-snippets",
     url = "https://github.com/rafamadriz/friendly-snippets"
+  },
+  ["gitsigns.nvim"] = {
+    loaded = true,
+    path = "/home/zack/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
+    url = "https://github.com/lewis6991/gitsigns.nvim"
   },
   ["gruvbox-baby"] = {
     loaded = true,
@@ -154,15 +161,20 @@ _G.packer_plugins = {
     path = "/home/zack/.local/share/nvim/site/pack/packer/start/gv.vim",
     url = "https://github.com/junegunn/gv.vim"
   },
-  ["hop.nvim"] = {
-    loaded = true,
-    path = "/home/zack/.local/share/nvim/site/pack/packer/start/hop.nvim",
-    url = "https://github.com/phaazon/hop.nvim"
-  },
   indentLine = {
     loaded = true,
     path = "/home/zack/.local/share/nvim/site/pack/packer/start/indentLine",
     url = "https://github.com/Yggdroot/indentLine"
+  },
+  ["lazy-loader.nvim"] = {
+    loaded = true,
+    path = "/home/zack/.local/share/nvim/site/pack/packer/start/lazy-loader.nvim",
+    url = "https://github.com/thesafdarawan/lazy-loader.nvim"
+  },
+  lazygit = {
+    loaded = true,
+    path = "/home/zack/.local/share/nvim/site/pack/packer/start/lazygit",
+    url = "https://github.com/jesseduffield/lazygit"
   },
   ["lualine.nvim"] = {
     loaded = true,
@@ -276,8 +288,10 @@ _G.packer_plugins = {
     url = "https://github.com/wbthomason/packer.nvim"
   },
   phpactor = {
-    loaded = true,
-    path = "/home/zack/.local/share/nvim/site/pack/packer/start/phpactor",
+    loaded = false,
+    needs_bufread = true,
+    only_cond = false,
+    path = "/home/zack/.local/share/nvim/site/pack/packer/opt/phpactor",
     url = "https://github.com/phpactor/phpactor"
   },
   ["plenary.nvim"] = {
@@ -310,6 +324,11 @@ _G.packer_plugins = {
     path = "/home/zack/.local/share/nvim/site/pack/packer/start/telescope-file-browser.nvim",
     url = "https://github.com/nvim-telescope/telescope-file-browser.nvim"
   },
+  ["telescope-fzf-native.nvim"] = {
+    loaded = true,
+    path = "/home/zack/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim",
+    url = "https://github.com/nvim-telescope/telescope-fzf-native.nvim"
+  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/home/zack/.local/share/nvim/site/pack/packer/start/telescope.nvim",
@@ -330,11 +349,6 @@ _G.packer_plugins = {
     path = "/home/zack/.local/share/nvim/site/pack/packer/start/trouble.nvim",
     url = "https://github.com/folke/trouble.nvim"
   },
-  ["typescript.nvim"] = {
-    loaded = true,
-    path = "/home/zack/.local/share/nvim/site/pack/packer/start/typescript.nvim",
-    url = "https://github.com/jose-elias-alvarez/typescript.nvim"
-  },
   ["vim-floaterm"] = {
     loaded = true,
     path = "/home/zack/.local/share/nvim/site/pack/packer/start/vim-floaterm",
@@ -346,8 +360,10 @@ _G.packer_plugins = {
     url = "https://github.com/tpope/vim-fugitive"
   },
   ["vim-laravel"] = {
-    loaded = true,
-    path = "/home/zack/.local/share/nvim/site/pack/packer/start/vim-laravel",
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "/home/zack/.local/share/nvim/site/pack/packer/opt/vim-laravel",
     url = "https://github.com/noahfrederick/vim-laravel"
   },
   ["vim-monokai-tasty"] = {
@@ -384,6 +400,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/zack/.local/share/nvim/site/pack/packer/start/vimwiki",
     url = "https://github.com/vimwiki/vimwiki"
+  },
+  ["which-key.nvim"] = {
+    loaded = true,
+    path = "/home/zack/.local/share/nvim/site/pack/packer/start/which-key.nvim",
+    url = "https://github.com/folke/which-key.nvim"
   }
 }
 
@@ -404,6 +425,16 @@ pcall(vim.api.nvim_create_user_command, 'CodeActionMenu', function(cmdargs)
       end})
 time([[Defining lazy-load commands]], false)
 
+vim.cmd [[augroup packer_load_aucmds]]
+vim.cmd [[au!]]
+  -- Filetype lazy-loads
+time([[Defining lazy-load filetype autocommands]], true)
+vim.cmd [[au FileType blade ++once lua require("packer.load")({'emmet-vim'}, { ft = "blade" }, _G.packer_plugins)]]
+vim.cmd [[au FileType php ++once lua require("packer.load")({'vim-laravel', 'phpactor'}, { ft = "php" }, _G.packer_plugins)]]
+vim.cmd [[au FileType css ++once lua require("packer.load")({'emmet-vim'}, { ft = "css" }, _G.packer_plugins)]]
+vim.cmd [[au FileType html ++once lua require("packer.load")({'emmet-vim'}, { ft = "html" }, _G.packer_plugins)]]
+time([[Defining lazy-load filetype autocommands]], false)
+vim.cmd("augroup END")
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

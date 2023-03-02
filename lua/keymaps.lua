@@ -35,6 +35,9 @@ map("n", "<S-Right>", ":vertical resize +2<CR>", opts)
 map("x", "J", ":move '>+1<CR>gv-gv", opts)
 -- map("x", "K", ":move '<-2<CR>gv-gv")
 
+-- Don't yank when visual select paste
+map("v", "p", '"_dP', opts)
+
 -- Modify j and k when a line is wrapped. Jump to next VISUAL line
 map("n", "k", "v:count == 0 ? 'gk' : 'k'", expr)
 map("n", "j", "v:count == 0 ? 'gj' : 'j'", expr)
