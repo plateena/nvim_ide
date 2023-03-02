@@ -3,7 +3,12 @@ local M = {}
 local modules = {}
 
 local plugs = {
-    "folke/todo-comments.nvim",
+    {
+        "folke/todo-comments.nvim",
+        config = function()
+            require('todo-comments').setup({})
+        end
+    },
     "machakann/vim-sandwich",
     { "mattn/emmet-vim", ft = { "blade", "html", "css"}},
     "rafamadriz/friendly-snippets",

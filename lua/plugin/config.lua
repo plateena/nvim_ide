@@ -2,23 +2,6 @@ require("utils")
 
 local opts = { noremap=true, silent=false }
 
-require('todo-comments').setup{}
-require('nvim-treesitter.configs').setup{
-    ensure_installed = {
-        "lua", "vim", "scss", "css", "php", "javascript", "typescript",
-        "markdown", "markdown_inline", "regex", "bash"
-    },
-    context_commentstring = {
-        enable = true,
-        commentary_integration = {
-            -- change default mapping
-            Commentary = 'g/',
-            -- disable default mapping
-            CommentaryLine = false,
-        },
-    }
-}
-
 require("mason").setup{};
 require("mason-lspconfig").setup()
 require("nvim-lsp-installer").setup({
