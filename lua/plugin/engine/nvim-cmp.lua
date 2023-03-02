@@ -119,6 +119,9 @@ M.setup = function()
                     luasnip = "[Snippet]",
                     buffer = "[Buffer]",
                     path = "[Path]",
+                    treesitter = "[Treesitter]",
+                    tags = "[Tags]",
+                    rg = "[Text]",
                 })[entry.source.name]
                 return vim_item
             end,
@@ -128,7 +131,6 @@ M.setup = function()
             { name = 'vsnip' },
             { name = 'nvim_lsp' },
             { name = 'path' },
-            { name = 'calc' },
             { name = 'treesitter' },
             { name = 'tags' },
             { name = 'rg' },
