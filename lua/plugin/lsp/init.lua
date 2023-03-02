@@ -36,7 +36,7 @@ local plugs = {
         end
     },
     "hrsh7th/cmp-nvim-lsp",
-    "williamboman/nvim-lsp-installer",
+    -- "williamboman/nvim-lsp-installer",
 }
 
 M.plugins = function(use)

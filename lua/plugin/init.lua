@@ -106,3 +106,4 @@ end)
 
 -- require("plugin.config")
 require("plugin.whichkey")
+vim.cmd("let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]")

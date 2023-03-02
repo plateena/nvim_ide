@@ -56,6 +56,13 @@ M.setup = function ()
         on_attach = on_attach,
         flags = lsp_flags,
     }
+    lspconfig['phpactor'].setup{
+        on_attach = on_attach,
+        init_options = {
+            ["language_server_phpstan.enabled"] = false,
+            ["language_server_psalm.enabled"] = false,
+        }
+    }
     -- require('lspconfig')['lua_ls'].setup{
     --     on_attach = on_attach,
     --     flags = lsp_flags,
