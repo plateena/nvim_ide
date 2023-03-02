@@ -14,7 +14,6 @@ isModuleAvailable = function (name)
 end
 
 isHasValueInTable = function(t, key_to_find) 
-
     if t == nil then return false end
 
     local f = false
@@ -38,7 +37,7 @@ setupPlugins = function (use, plugs, modules, basePath)
         end
     end
 
-    if #modules > 0 then 
+    if modules ~= nil and #modules > 0 then 
         for k, mode in pairs(modules) do
             require(basePath .. mode).plugins(use)
             if require(basePath .. mode).setup ~= nil then

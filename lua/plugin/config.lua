@@ -2,12 +2,6 @@ require("utils")
 
 local opts = { noremap=true, silent=false }
 
-require('nvim-tree').setup{}
-
-if isModuleAvailable('nvim-autopairs') then
-    require('nvim-autopairs').setup{}
-end
-
 if isModuleAvailable('Comment') then
     require('Comment').setup()
 end
