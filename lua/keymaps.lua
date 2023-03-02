@@ -3,7 +3,7 @@ local opts = { noremap = true, silent = true }
 local expr = { noremap = true, silent = true, expr = true }
 
 -- Map leader key to space
-map("n", "<Space>", "<Nop>", opts)
+-- map("n", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
@@ -15,7 +15,7 @@ map("n", "n", "nzzzv", opts)
 map("n", "N", "Nzzzv", opts)
 
 -- Clear matches with Ctrl+l
-map("n", "<leader><CR>", ":noh<Cr>", opts)
+-- map("n", "<leader><CR>", ":noh<Cr>", opts)
 
 -- Reselect visual block after indent/outdent
 map("v", "<", "<gv", opts)
@@ -42,8 +42,8 @@ map("v", "p", '"_dP', opts)
 map("n", "k", "v:count == 0 ? 'gk' : 'k'", expr)
 map("n", "j", "v:count == 0 ? 'gj' : 'j'", expr)
 
-map('n', '<Leader>w', ':write<CR>',{})
-map('n', '<Leader>bd', ':bd<CR>',{})
+-- map('n', '<Leader>w', ':write<CR>',{})
+-- map('n', '<Leader>bd', ':bd<CR>',{})
 map('n', '<Leader>bda', ':bufdo bd<CR>',{})
 map('i', 'jk', '<Esc>',{})
 map('n', '<Leader>sv', ':source ~/.config/nvim/init.lua<Cr>',{})

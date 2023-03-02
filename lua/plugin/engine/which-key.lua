@@ -84,7 +84,7 @@ local mappings = {
         "Buffers",
     },
     -- ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
-    ["w"] = { "<cmd>w!<CR>", "Save" },
+    -- ["w"] = { "<cmd>w!<CR>", "Save" },
     ["q"] = { "<cmd>q!<CR>", "Quit" },
     ["<Cr>"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
     ["c"] = { "<cmd>Telescope command_history<CR>", "Command history" },
@@ -97,7 +97,7 @@ local mappings = {
         "Find files",
     },
     ["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
-    ["P"] = { "<cmd>Prettier<cr>", "Prettier" },
+    -- ["P"] = { "<cmd>Prettier<cr>", "Prettier" },
 
     e = {
         name = "Explorer",
@@ -173,14 +173,14 @@ local mappings = {
     },
     s = {
         name = "Search",
+        -- R = { "<cmd>Telescope registers<cr>", "Registers" },
+        C = { "<cmd>Telescope commands<cr>", "Commands" },
+        M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
         b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
         c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
         h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
-        M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
-        r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
-        R = { "<cmd>Telescope registers<cr>", "Registers" },
         k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
-        C = { "<cmd>Telescope commands<cr>", "Commands" },
+        o = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
     },
 
     t = {

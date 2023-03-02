@@ -14,7 +14,7 @@ M.plugins = function(use)
     },
     {
         'phpactor/phpactor',
-        tag = '*',
+        tag = '2023-01-0=21',
         run = 'composer install --no-dev -o',
         ft = {"php"}
 

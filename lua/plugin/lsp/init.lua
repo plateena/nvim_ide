@@ -8,6 +8,20 @@ local modules = {
 
 local plugs = {
     {
+        "williamboman/nvim-lsp-installer",
+        config = function()
+            require("nvim-lsp-installer").setup({
+                ui = {
+                    icons = {
+                        server_installed = "✓",
+                        server_pending = "➜",
+                        server_uninstalled = "✗"
+                    }
+                }
+            })
+        end
+    },
+    {
         "williamboman/mason-lspconfig.nvim",
         config = function()
             local servers = {
@@ -36,20 +50,6 @@ local plugs = {
         end
     },
     "hrsh7th/cmp-nvim-lsp",
-    {
-        "williamboman/nvim-lsp-installer",
-        config = function()
-            require("nvim-lsp-installer").setup({
-                ui = {
-                    icons = {
-                        server_installed = "✓",
-                        server_pending = "➜",
-                        server_uninstalled = "✗"
-                    }
-                }
-            })
-        end
-    },
 }
 
 M.plugins = function(use)
