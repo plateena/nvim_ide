@@ -22,6 +22,10 @@ local plugs = {
             require('trouble').setup({})
         end
     },
+    'NvChad/nvim-colorizer.lua',
+    'nvim-tree/nvim-web-devicons',
+    'DanilaMihailov/beacon.nvim',                -- cursor jump
+    'Yggdroot/indentLine',                       -- see indentation
 }
 
 M.plugins = function(use)

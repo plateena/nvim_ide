@@ -16,7 +16,7 @@ local packer_bootstrap = ensure_packer()
 
 local function get_plugins(use) 
     local modules = {
-        "core",
+        "doc",
         "theme",
         "editor",
         "engine",
@@ -59,44 +59,6 @@ packer.startup(function(use)
 
     use 'wbthomason/packer.nvim'
 
-    -- My plugins here
-
-    -- Engine
-
-    use {
-        'thesafdarawan/lazy-loader.nvim'
-    }
-
-    -- Tools
-    use {
-    }
-
-    -- Vimwiki
-    use {
-        'vimwiki/vimwiki', 
-    }
-
-    use 'plateena/taskwiki'
-
-
-    -- Theme
-    use {
-        'NvChad/nvim-colorizer.lua',
-        'nvim-tree/nvim-web-devicons',
-        'DanilaMihailov/beacon.nvim',                -- cursor jump
-        'Yggdroot/indentLine',                       -- see indentation
-    }
-
-    -- Less important
-    use { 'windwp/nvim-autopairs' , cond = false }                    -- auto close brackets, etc.
-    use {
-        "folke/which-key.nvim",
-        "nvim-telescope/telescope-file-browser.nvim", -- filesystem navigation
-        'junegunn/gv.vim',                          -- commit history
-        { 'weilbith/nvim-code-action-menu', cmd = { 'CodeActionMenu'} }
-    }
-
-
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if packer_bootstrap then
@@ -104,6 +66,4 @@ packer.startup(function(use)
     end
 end)
 
--- require("plugin.config")
-require("plugin.whichkey")
 vim.cmd("let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]")

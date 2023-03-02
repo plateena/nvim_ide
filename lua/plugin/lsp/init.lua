@@ -11,8 +11,8 @@ local plugs = {
         "williamboman/mason-lspconfig.nvim",
         config = function()
             local servers = {
-                "phpactor",
-                "pyright",
+                -- "phpactor",
+                -- "pyright",
             }
             require("mason-lspconfig").setup({
                 ensure_installed = servers,
@@ -36,7 +36,20 @@ local plugs = {
         end
     },
     "hrsh7th/cmp-nvim-lsp",
-    -- "williamboman/nvim-lsp-installer",
+    {
+        "williamboman/nvim-lsp-installer",
+        config = function()
+            require("nvim-lsp-installer").setup({
+                ui = {
+                    icons = {
+                        server_installed = "✓",
+                        server_pending = "➜",
+                        server_uninstalled = "✗"
+                    }
+                }
+            })
+        end
+    },
 }
 
 M.plugins = function(use)
@@ -44,9 +57,6 @@ M.plugins = function(use)
 end
 
 M.runs = function()
-    -- require("plugin.lsp.mason")
-    -- require("plugin.lsp.handlers").setup()
-    -- require("plugin.lsp.null-ls")
 end
 
 return M
