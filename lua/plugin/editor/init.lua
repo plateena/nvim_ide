@@ -7,7 +7,16 @@ local plugs = {
     "machakann/vim-sandwich",
     { "mattn/emmet-vim", ft = { "blade", "html", "css"}},
     "rafamadriz/friendly-snippets",
-    'JoosepAlviste/nvim-ts-context-commentstring',
+    {
+        'JoosepAlviste/nvim-ts-context-commentstring',
+        config = function() 
+            require("nvim-treesitter.configs").setup({
+                context_commentstring = {
+                    enable = true,
+                }
+            })
+        end
+    },
     {
         'numToStr/Comment.nvim', config = function()
             require('Comment').setup()

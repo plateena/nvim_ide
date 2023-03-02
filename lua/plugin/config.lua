@@ -6,14 +6,6 @@ if isModuleAvailable('Comment') then
     require('Comment').setup()
 end
 
-if isModuleAvailable('hop') then
-    require 'plugin.hop'
-end
-
--- if isModuleAvailable('vsnip') then
--- require 'plugin.vsnip'
--- end
-
 require('trouble').setup{}
 require('todo-comments').setup{}
 require('nvim-treesitter.configs').setup{
@@ -55,7 +47,7 @@ require('lspconfig').phpactor.setup{
 
 
 
-require "plugin.lualine"
+-- require "plugin.lualine"
 require "plugin.lspconfig"
 require "plugin.nvim-cmp"
 require "plugin.nvim-tree"
