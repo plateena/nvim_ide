@@ -2,7 +2,6 @@ require("utils")
 
 local opts = { noremap=true, silent=false }
 
-require("mason").setup{};
 require("mason-lspconfig").setup()
 require("nvim-lsp-installer").setup({
     automatic_installation = true, -- automatically detect which servers to install (based on which servers are set up via lspconfig)
