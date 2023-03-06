@@ -2,13 +2,17 @@ local opt = vim.opt
 local wo = vim.wo
 local g = vim.g
 local o = vim.o
-local set = vim.opt
 
 opt.autoindent = true
 opt.smartindent = true
-opt.wildmode="longest:full"
+opt.wildmode="list:longest"
 opt.list = true
 opt.listchars:append "eol:↴"
+opt.conceallevel=1
+opt.concealcursor=""
+-- opt.taskwiki_disable_concealcursor=true
+vim.cmd("let g:taskwiki_disable_concealcursor=1")
+vim.cmd('setlocal concealcursor=""')
 
 o.colorcolumn = '80'
 o.cursorline = true     -- Highlight the current cursor line (Can slow the UI)
@@ -39,16 +43,16 @@ o.updatetime = 750      -- I have a modern machine. No need to wait that long
 
 -- set list chars
 local list_chars_symbols = {
-	-- ["eol"] = "↲",
+	["eol"] = "↲",
 	["eol"] = "↴",
-	-- ["tab"] = "→ ",
+	["tab"] = "→ ",
 	["tab"] = "» ",
 	-- ["space"] = "␣",
 	["trail"] = "-",
 	["extends"] = "☛",
 	["precedes"] = "☚",
-	-- ["extends"] = "»",
-	-- ["precedes"] = "«",
+	["extends"] = "»",
+	["precedes"] = "«",
 	["conceal"] = "┊",
 	-- ["nbsp"] = "☠",
 	["nbsp"] = "⣿",

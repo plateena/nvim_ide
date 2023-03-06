@@ -55,11 +55,23 @@ local setup = {
         spacing = 2, -- spacing between columns
         align = "left", -- align columns left, center or right
     },
-    ignore_missing = true, -- enable this to hide mappings for which you didn't specify a label
+    ignore_missing = false, -- enable this to hide mappings for which you didn't specify a label
     hidden = { "<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ " }, -- hide mapping boilerplate
     show_help = true, -- show help message on the command line when the popup is visible
---    triggers = "auto", -- automatically setup triggers
+    triggers = "auto", -- automatically setup triggers
     -- triggers = {"<leader>"} -- or specify a list manually
+    triggers_nowait = {
+        -- marks
+        "`",
+        "'",
+        "g`",
+        "g'",
+        -- registers
+        '"',
+        "<c-r>",
+        -- spelling
+        "z=",
+    },
     triggers_blacklist = {
         -- list of mode / prefixes that should never be hooked by WhichKey
         -- this is mostly relevant for key maps that start with a native binding
@@ -83,21 +95,27 @@ local mappings = {
         "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
         "Buffers",
     },
-    -- ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
-    -- ["w"] = { "<cmd>w!<CR>", "Save" },
     ["q"] = { "<cmd>q!<CR>", "Quit" },
     ["<Cr>"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
     ["c"] = { "<cmd>Telescope command_history<CR>", "Command history" },
-    ["h"] = {
-        "<cmd>lua require('telescope.builtin').oldfiles(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-        "Oldfiles",
+
+    f = {
+        name = "Files",
+        f = {
+            "<cmd>lua require('telescope.builtin').fd(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+            "Find files",
+        },
+        g = { "<cmd>Telescope git_status<cr>", "Files in git status" },
+        F = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
+        w = { "<cmd>w!<cr>", "Write file" },
+        W = { "<cmd>SudaWrite<cr>", "Suda write file" },
+        h = {
+            "<cmd>lua require('telescope.builtin').oldfiles(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+            "Oldfiles",
+        },
+        P = { "<cmd>Prettier<cr>", "Prettier" },
+        d = { "<Cmd>bd<Cr>", "Close buffer"}
     },
-    ["f"] = {
-        "<cmd>lua require('telescope.builtin').fd(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-        "Find files",
-    },
-    ["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
-    -- ["P"] = { "<cmd>Prettier<cr>", "Prettier" },
 
     e = {
         name = "Explorer",
@@ -124,7 +142,8 @@ local mappings = {
         p = { "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", "Preview Hunk" },
         r = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", "Reset Hunk" },
         R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer" },
-        S = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Stage Hunk" },
+        -- S = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Stage Hunk" },
+        S = { "<cmd>Telescope git_status<Cr>", "Stage Hunk" },
         u = {
             "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>",
             "Undo Stage Hunk",
@@ -138,6 +157,11 @@ local mappings = {
         },
         -- fugutive
         s = {"<cmd>Git<cr>", "Git fugutive"},
+        t = {
+            name = "Telescope git",
+            f = { "<cmd>Telescope git_files<cr>", "Telescope git files" },
+            s = { "<cmd>Telescope git_status<Cr>", "Telescope git status (List all changes files)" },
+        }
     },
 
     l = {
@@ -188,6 +212,23 @@ local mappings = {
         n = { "<cmd>FloatermNew --wintype=split<cr>", "New Terminal" },
         h = { "<cmd>FloatermHide<cr>", "Hide Terminal" },
         k = { "<cmd>FloatermKill<cr>", "Kill Terminal" },
+    },
+
+    v = {
+        name = "Vsnip",
+        o = { "<cmd>VsnipOpenEdit<cr>", "Vsnip open edit" },
+    },
+
+    o = {
+        name = "Options",
+        c = {
+            name = "Conceal",
+            q = { "<Cmd>set conceallevel=0<Cr>", "Set conceallevel 0"},
+            w = { "<Cmd>set conceallevel=1<Cr>", "Set conceallevel 1"},
+            e = { "<Cmd>set conceallevel=2<Cr>", "Set conceallevel 2"},
+            r = { "<Cmd>set conceallevel=3<Cr>", "Set conceallevel 3"},
+            a = { '<Cmd>set concealcursor=""<Cr>', "Set concealcursor to null"},
+        },
     },
 }
 

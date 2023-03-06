@@ -1,0 +1,10 @@
+{
+    "dd": {
+        "prefix": ["dd"],
+        "body": [
+            "$LINE_COMMENT @TODO: <${VIM:system('git config --get user.name | xargs echo -n')}: $CURRENT_DATE-$CURRENT_MONTH-$CURRENT_YEAR> remove this debug code",
+            "dd(${0});"
+        ],
+        "description": "Class definition template."
+    }
+}

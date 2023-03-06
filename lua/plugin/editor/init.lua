@@ -32,10 +32,14 @@ local plugs = {
     -- { 'phaazon/hop.nvim', disable = true, branch = 'v2' },
 
     'hrsh7th/cmp-vsnip',
-    'hrsh7th/vim-vsnip',
+    { 'hrsh7th/vim-vsnip', 
+        config = function() 
+            vim.cmd("let g:vsnip_snippet_dir='~/.config/nvim/snippet'")
+        end,
+    },
     {
         'prettier/vim-prettier', 
-        run = 'npm install --frozen-lockfile --production'
+        run = 'npm install --frozen-lockfile --production',
     },
 }
 
