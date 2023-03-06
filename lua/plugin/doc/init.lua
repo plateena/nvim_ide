@@ -122,7 +122,7 @@ local plugs = {
     },
     {
         'plateena/taskwiki',
-        disable = true,
+        disable = false,
     }
 }
 
