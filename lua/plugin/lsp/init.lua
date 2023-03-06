@@ -9,6 +9,7 @@ local modules = {
 local plugs = {
     {
         "williamboman/nvim-lsp-installer",
+        disbale = true,
         config = function()
             require("nvim-lsp-installer").setup({
                 ui = {
@@ -25,8 +26,12 @@ local plugs = {
         "williamboman/mason-lspconfig.nvim",
         config = function()
             local servers = {
-                -- "phpactor",
-                -- "pyright",
+                "jsonls",
+                "lua_ls",
+                "phpactor",
+                "pyright",
+                "tsserver",
+                "yamlls",
             }
             require("mason-lspconfig").setup({
                 ensure_installed = servers,

@@ -1,5 +1,7 @@
 local M = {}
 
+local basePath = "plugin.editor."
+
 local modules = {}
 
 local plugs = {

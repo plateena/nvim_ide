@@ -43,14 +43,14 @@ o.updatetime = 750      -- I have a modern machine. No need to wait that long
 
 -- set list chars
 local list_chars_symbols = {
-	["eol"] = "↲",
+	-- ["eol"] = "↲",
 	["eol"] = "↴",
 	["tab"] = "→ ",
-	["tab"] = "» ",
+	-- ["tab"] = "» ",
 	-- ["space"] = "␣",
 	["trail"] = "-",
-	["extends"] = "☛",
-	["precedes"] = "☚",
+	-- ["extends"] = "☛",
+	-- ["precedes"] = "☚",
 	["extends"] = "»",
 	["precedes"] = "«",
 	["conceal"] = "┊",

@@ -2,6 +2,8 @@ local M = {}
 
 local modules = {}
 
+local basePath = "plugin.doc."
+
 local plugs = {
     {
         'vimwiki/vimwiki',

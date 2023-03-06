@@ -100,7 +100,7 @@ if getOS() == 'Linux' then
     print("Setup npm global without sudo")
     os.execute("mkdir $HOME/.npm-global")
     os.execute("npm config set prefix '~/.npm-global/")
-    os.execute("echo 'set PATH $HOME/.npm-global/bin $PATH' >> ~/.config/fish/config.fish")
+    os.execute("pip install tasklib")
 else
     print("Only work on linux")
 end

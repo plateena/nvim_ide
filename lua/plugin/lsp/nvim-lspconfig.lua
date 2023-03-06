@@ -1,7 +1,7 @@
 local M = {}
 
 M.plugins = function(use)
-    use({ 
+    use({
         "neovim/nvim-lspconfig",
     })
 end
@@ -20,7 +20,7 @@ M.setup = function ()
 
     -- Use an on_attach function to only map the following keys
     -- after the language server attaches to the current buffer
-    local on_attach = function(client, bufnr)
+    local on_attach = function(_, bufnr)
         -- Enable completion triggered by <c-x><c-o>
         -- vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
@@ -48,40 +48,63 @@ M.setup = function ()
         -- This is the default in Nvim 0.7+
         debounce_text_changes = 150,
     }
+
+    -- Completion
+    --
+    local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
+    lspconfig['jsonls'].setup({
+        on_attach = on_attach,
+        flags = lsp_flags,
+        capabilities = capabilities,
+    })
+
+    lspconfig['lua_ls'].setup{
+        on_attach = on_attach,
+        flags = lsp_flags,
+        settings = {
+            Lua = {
+                diagnostics = {
+                    globals = {
+                        'vim'
+                    },
+                    disable = {
+                        "lowercase-global",
+                    }
+                }
+            }
+        },
+    }
+
+    -- lspconfig['phpactor'].setup{
+    --     on_attach = on_attach,
+    --     flags = lsp_flags,
+    --     init_options = {
+    --         ["language_server_phpstan.enabled"] = false,
+    --         ["language_server_psalm.enabled"] = false,
+    --     }
+    -- }
+
     lspconfig['pyright'].setup{
         on_attach = on_attach,
         flags = lsp_flags,
     }
+
     lspconfig['tsserver'].setup{
         on_attach = on_attach,
         flags = lsp_flags,
     }
-    lspconfig['phpactor'].setup{
-        on_attach = on_attach,
-        init_options = {
-            ["language_server_phpstan.enabled"] = false,
-            ["language_server_psalm.enabled"] = false,
-        }
-    }
-    -- require('lspconfig')['lua_ls'].setup{
-    --     on_attach = on_attach,
-    --     flags = lsp_flags,
-    -- }
-    -- lspconfig['sumneko_lua'].setup{
-    --     on_attach = on_attach,
-    --     flags = lsp_flags,
-    -- }
-    -- require('lspconfig')['rust_analyzer'].setup{
-    --     on_attach = on_attach,
-    --     flags = lsp_flags,
-    --     -- Server-specific settings...
-    --     settings = {
-    --         ["rust-analyzer"] = {}
-    --     }
-    -- }
 
-    -- Completion
-    local capabilities = require("cmp_nvim_lsp").default_capabilities()
+    lspconfig['yamlls'].setup{
+        on_attach = on_attach,
+        flags = lsp_flags,
+    }
+
+    lspconfig['intelephense'].setup{
+        on_attach = on_attach,
+        flags = lsp_flags,
+    }
+
     lspconfig.clangd.setup({
         capabilities = capabilities,
     })
