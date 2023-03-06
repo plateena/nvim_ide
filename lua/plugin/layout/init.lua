@@ -26,6 +26,7 @@ local plugs = {
     'nvim-tree/nvim-web-devicons',
     'DanilaMihailov/beacon.nvim',                -- cursor jump
     'Yggdroot/indentLine',                       -- see indentation
+    'tpope/vim-dispatch',
 }
 
 M.plugins = function(use)

@@ -43,7 +43,7 @@ map("n", "k", "v:count == 0 ? 'gk' : 'k'", expr)
 map("n", "j", "v:count == 0 ? 'gj' : 'j'", expr)
 
 map('n', '<Leader>w', ':write<CR>',{})
--- map('n', '<Leader>bd', ':bd<CR>',{})
+map('n', '<Leader>bd', ':bd<CR>',{})
 map('n', '<Leader>bda', ':bufdo bd<CR>',{})
 map('i', 'jk', '<Esc>',{})
 map('n', '<Leader>sv', ':source ~/.config/nvim/init.lua<Cr>',{})
