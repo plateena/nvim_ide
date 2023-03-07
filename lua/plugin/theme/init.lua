@@ -13,6 +13,12 @@ local function plugins(use)
         'rmehri01/onenord.nvim',
         { 'lalitmee/cobalt2.nvim', requires = 'tjdevries/colorbuddy.nvim' },
         { 'luisiacc/gruvbox-baby', branch = 'main'},
+        { "catppuccin/nvim", as = "catppuccin" },
+        'loctvl842/monokai-pro.nvim',
+        "navarasu/onedark.nvim",
+        "NLKNguyen/papercolor-theme",
+        'arcticicestudio/nord-vim',
+        { "bluz71/vim-nightfly-colors", as = "nightfly" }
     })
 end
 
@@ -26,6 +32,8 @@ local function runs()
     if not status_ok then
         vim.notify("colorscheme " .. colorscheme .. " not found!")
     end
+
+    vim.api.nvim_command("hi LineNr guifg=#377982 ctermfg=33")
 end
 
 return { plugins = plugins, runs = runs }
