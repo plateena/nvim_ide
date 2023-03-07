@@ -55,6 +55,7 @@ local plugs = {
         end
     },
     "hrsh7th/cmp-nvim-lsp",
+    "jose-elias-alvarez/null-ls.nvim",
 }
 
 M.plugins = function(use)
