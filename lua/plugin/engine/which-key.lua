@@ -211,6 +211,7 @@ local mappings = {
         name = "Terminal",
         n = { "<cmd>FloatermNew --wintype=split<cr>", "New Terminal" },
         h = { "<cmd>FloatermHide<cr>", "Hide Terminal" },
+        t = { "<cmd>FloatermToggle<cr>", "Toggle Terminal" },
         k = { "<cmd>FloatermKill<cr>", "Kill Terminal" },
     },
 
