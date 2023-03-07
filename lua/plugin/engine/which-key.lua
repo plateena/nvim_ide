@@ -99,6 +99,8 @@ local mappings = {
     ["<Cr>"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
     ["c"] = { "<cmd>Telescope command_history<CR>", "Command history" },
 
+    r = { "<cmd>Telescope resume<Cr>", "Telescope resume" },
+
     f = {
         name = "Files",
         f = {
