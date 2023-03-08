@@ -12,6 +12,7 @@ local plugs = {
         disbale = true,
         config = function()
             require("nvim-lsp-installer").setup({
+                ensure_installed = {"phpactor"},
                 ui = {
                     icons = {
                         server_installed = "✓",
@@ -28,7 +29,7 @@ local plugs = {
             local servers = {
                 "jsonls",
                 "lua_ls",
-                "phpactor",
+                -- "phpactor",
                 "pyright",
                 "tsserver",
                 "yamlls",
