@@ -10,6 +10,7 @@ opt.list = true
 opt.listchars:append "eol:↴"
 opt.conceallevel=1
 opt.concealcursor=""
+opt.foldmethod="expr"
 -- opt.taskwiki_disable_concealcursor=true
 vim.cmd("let g:taskwiki_disable_concealcursor=1")
 vim.cmd('setlocal concealcursor=""')

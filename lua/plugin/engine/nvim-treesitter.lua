@@ -26,7 +26,9 @@ M.setup = function()
 			"yaml",
 		}
 
-	require("nvim-treesitter.configs").setup{
+	require("nvim-treesitter.configs").setup({
+	-- change default mapping
+	-- disable default mapping
 		ensure_installed = lang,
 		highlight = {
 			enable = true,
@@ -40,13 +42,24 @@ M.setup = function()
 		context_commentstring = {
 			enable = true,
 			commentary_integration = {
-				-- change default mapping
 				Commentary = "g/",
-				-- disable default mapping
 				CommentaryLine = false,
 			},
 		},
-	}
+	})
+
+	local vim = vim
+	local opt = vim.opt
+
+	opt.foldmethod = "expr"
+	opt.foldexpr = "nvim_treesitter#foldexpr()"
+	vim.api.nvim_create_autocmd(
+		{ "BufEnter" },
+		{
+			pattern = { "*" },
+			command = "normal zx",
+		}
+	)
 end
 
 return M
