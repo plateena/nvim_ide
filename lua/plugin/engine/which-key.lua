@@ -99,8 +99,6 @@ local mappings = {
     ["<Cr>"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
     ["c"] = { "<cmd>Telescope command_history<CR>", "Command history" },
 
-    r = { "<cmd>Telescope resume<Cr>", "Telescope resume" },
-
     f = {
         name = "Files",
         f = {
@@ -207,15 +205,17 @@ local mappings = {
         h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
         k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
         o = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
+        r = { "<cmd>Telescope resume<cr>", "Resume search" },
     },
 
-    t = {
-        name = "Terminal",
-        n = { "<cmd>FloatermNew --wintype=split<cr>", "New Terminal" },
-        h = { "<cmd>FloatermHide<cr>", "Hide Terminal" },
-        t = { "<cmd>FloatermToggle<cr>", "Toggle Terminal" },
-        k = { "<cmd>FloatermKill<cr>", "Kill Terminal" },
-    },
+    -- t = {
+    --     name = "Terminal",
+    --     t = { "<Cmd>ToggleTerm<Cr>", ""}
+        -- n = { "<cmd>FloatermNew --wintype=split<cr>", "New Terminal" },
+        -- h = { "<cmd>FloatermHide<cr>", "Hide Terminal" },
+        -- t = { "<cmd>FloatermToggle<cr>", "Toggle Terminal" },
+        -- k = { "<cmd>FloatermKill<cr>", "Kill Terminal" },
+    -- },
 
     v = {
         name = "Vsnip",

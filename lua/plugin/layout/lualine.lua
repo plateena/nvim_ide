@@ -45,7 +45,7 @@ M.setup = function()
         tabline = {},
         winbar = {},
         inactive_winbar = {},
-        extensions = {}
+        extensions = { 'quickfix', 'toggleterm', 'nvim-tree', 'fugitive'}
     }
 end
 

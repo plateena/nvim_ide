@@ -12,6 +12,11 @@ local plugs = {
     'hrsh7th/cmp-path',
     'hrsh7th/cmp-cmdline',
     "folke/which-key.nvim",
+    {
+        'vim-test/vim-test',
+        config = function ()
+        end
+    }
 }
 
 M.plugins = function(use)

@@ -14,5 +14,14 @@
             "dump(${0});"
         ],
         "description": "Print dump"
+    },
+    "/**": {
+        "prefix": ["/**"],
+        "body": [
+            "/**",
+            "*",
+            "*/"
+        ],
+        "description": "Block comment"
     }
 }
