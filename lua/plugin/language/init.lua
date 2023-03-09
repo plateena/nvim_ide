@@ -25,7 +25,7 @@ M.plugins = function(use)
         -- }
         {
             "gbprod/phpactor.nvim",
-            run = require("phpactor.handler.update"), -- To install/update phpactor when installing this plugin
+            -- run = require("phpactor.handler.update"), -- To install/update phpactor when installing this plugin
             requires = {
                 "nvim-lua/plenary.nvim", -- required to update phpactor
                 "neovim/nvim-lspconfig" -- required to automaticly register lsp serveur
