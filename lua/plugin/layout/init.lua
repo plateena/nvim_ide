@@ -73,7 +73,7 @@ local plugs = { -- {
 		}
 		vim.keymap.set(
 			"n",
-			"<CR>",
+			"<C-z>",
 			function()
 				vim.cmd("NeoZoomToggle")
 			end,

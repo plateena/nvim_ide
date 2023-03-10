@@ -2,7 +2,8 @@ local basePath = "plugin.lsp."
 local M  = {}
 
 local modules = {
-    "nvim-lspconfig"
+    "nvim-lspconfig",
+    "null-ls",
 }
 
 
@@ -56,7 +57,6 @@ local plugs = {
         end
     },
     "hrsh7th/cmp-nvim-lsp",
-    "jose-elias-alvarez/null-ls.nvim",
 }
 
 M.plugins = function(use)

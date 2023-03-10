@@ -3,6 +3,7 @@ local M = {}
 M.plugins = function(use)
     use({
         "neovim/nvim-lspconfig",
+        "jose-elias-alvarez/null-ls.nvim",
     })
 end
 
@@ -16,8 +17,9 @@ M.setup = function()
     -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/formatting
     local formatting = null_ls.builtins.formatting
     -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
-    -- local diagnostics = null_ls.builtins.diagnostics
+    local diagnostics = null_ls.builtins.diagnostics
 
+    local path = vim.api.nvim_exec("pwd",  true)
     null_ls.setup({
         debug = false,
         sources = {
@@ -25,6 +27,11 @@ M.setup = function()
             formatting.black.with({ extra_args = { "--fast" } }),
             formatting.stylua,
             -- diagnostics.flake8
+            diagnostics.phpcs.with({
+                extra_args = {
+                    "--standard=" .. path .. "/phpcs.xml",
+                }
+            }),
         },
     })
 end
