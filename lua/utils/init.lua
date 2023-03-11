@@ -1,7 +1,7 @@
 isModuleAvailable = function (name)
     if package.loaded[name] then
         return true
-    else
+    elseif package.searchers then
         for _, searcher in ipairs(package.searchers) do
             local loader = searcher(name)
             if type(loader) == 'function' then
@@ -9,6 +9,8 @@ isModuleAvailable = function (name)
                 return true
             end
         end
+        return false
+    else
         return false
     end
 end
