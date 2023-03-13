@@ -1,7 +1,7 @@
 local basePath = "plugin.lsp."
-local M  = {}
+local M = {}
 
-local modules = {
+local modules  = {
     "nvim-lspconfig",
     "null-ls",
 }
@@ -13,7 +13,7 @@ local plugs = {
         disbale = true,
         config = function()
             require("nvim-lsp-installer").setup({
-                ensure_installed = {"phpactor"},
+                ensure_installed = { "phpactor" },
                 ui = {
                     icons = {
                         server_installed = "✓",
@@ -28,16 +28,16 @@ local plugs = {
         "williamboman/mason-lspconfig.nvim",
         config = function()
             local servers = {
-                "jsonls",
-                "lua_ls",
+                -- "jsonls",
+                -- "lua_ls",
                 -- "phpactor",
-                "pyright",
-                "tsserver",
-                "yamlls",
+                -- "pyright",
+                -- "tsserver",
+                -- "yamlls",
             }
             require("mason-lspconfig").setup({
                 ensure_installed = servers,
-                automatic_installation = false,
+                automatic_installation = true,
             })
         end
     },
