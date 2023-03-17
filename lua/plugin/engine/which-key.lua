@@ -225,13 +225,42 @@ local mappings = {
 
     o = {
         name = "Options",
+        f = {
+            name = "Foldmethod",
+            a = { "<Cmd>setlocal foldmethod='manual'<Cr>", "Set foldmethod manual"},
+            e = { "<Cmd>setlocal foldmethod='expr'<Cr>", "Set foldmethod expr"},
+            i = { "<Cmd>setlocal foldmethod='indent'<Cr>", "Set foldmethod indent"},
+            m = { "<Cmd>setlocal foldmethod='marker'<Cr>", "Set foldmethod marker"},
+            s = { "<Cmd>setlocal foldmethod='syntax'<Cr>", "Set foldmethod syntax"},
+            d = { "<Cmd>setlocal foldmethod='diff'<Cr>", "Set foldmethod diff"},
+        },
+        y = {
+            name = "Yank",
+            i = { "<Cmd>setlocal paste<Cr>", "Set paste true"},
+            o = { "<Cmd>setlocal nopaste<Cr>", "Set paste false"},
+        },
+        i = {
+            name = "Yank",
+            i = { "<Cmd>setlocal autoindent smartindent<Cr>", "Set autoindent and smartindent true"},
+            o = { "<Cmd>setlocal noautoindent nosmartindent<Cr>", "Set autoindent and smartindent false"},
+        },
+        t = {
+            name = "Tab",
+            w = { "<Cmd>setlocal tabstop=2<Cr>", "Set tabstop 2"},
+            r = { "<Cmd>setlocal tabstop=4<Cr>", "Set tabstop 4"},
+        },
+        s = {
+            name = "Spell",
+            q = { "<Cmd>setlocal spell<Cr>", "Set spell"},
+            n = { "<Cmd>setlocal nospell<Cr>", "Set nospell"},
+        },
         c = {
             name = "Conceal",
-            q = { "<Cmd>set conceallevel=0<Cr>", "Set conceallevel 0"},
-            w = { "<Cmd>set conceallevel=1<Cr>", "Set conceallevel 1"},
-            e = { "<Cmd>set conceallevel=2<Cr>", "Set conceallevel 2"},
-            r = { "<Cmd>set conceallevel=3<Cr>", "Set conceallevel 3"},
-            a = { '<Cmd>set concealcursor=""<Cr>', "Set concealcursor to null"},
+            q = { "<Cmd>setlocal conceallevel=0<Cr>", "Set conceallevel 0"},
+            w = { "<Cmd>setlocal conceallevel=1<Cr>", "Set conceallevel 1"},
+            e = { "<Cmd>setlocal conceallevel=2<Cr>", "Set conceallevel 2"},
+            r = { "<Cmd>setlocal conceallevel=3<Cr>", "Set conceallevel 3"},
+            a = { '<Cmd>setlocal concealcursor=""<Cr>', "Set concealcursor to null"},
         },
     },
 }

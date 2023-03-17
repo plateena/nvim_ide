@@ -5,7 +5,7 @@ local o = vim.o
 
 opt.autoindent = true
 opt.smartindent = true
-opt.wildmode="list:longest"
+opt.wildmode="longest:list,full"
 opt.list = true
 opt.listchars:append "eol:↴"
 opt.conceallevel=1
@@ -17,6 +17,7 @@ vim.cmd('setlocal concealcursor=""')
 
 o.colorcolumn = '80'
 o.cursorline = true     -- Highlight the current cursor line (Can slow the UI)
+o.cursorcolumn = true     -- Highlight the current cursor line (Can slow the UI)
 o.encoding = "utf-8"    -- Just in case
 o.expandtab = true      -- Use appropriate number of spaces (no so good for PHP but we can fix this in ft)
 o.hidden = true         -- Allow multple buffers
