@@ -1,5 +1,5 @@
-require "keymaps"
-require "options"
+require "zack.globals.keymaps"
+require "zack.globals.options"
 require "filetype"
 require "plugin"
 

@@ -1,4 +1,4 @@
-local map = vim.api.nvim_set_keymap
+map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 local expr = { noremap = true, silent = true, expr = true }
 
@@ -32,7 +32,7 @@ map("n", "<S-Left>", ":vertical resize -2<CR>", opts)
 map("n", "<S-Right>", ":vertical resize +2<CR>", opts)
 
 -- Move line up and down with J/K
--- map("x", "J", ":move '>+1<CR>gv-gv", opts)
+map("x", "J", ":move '>+1<CR>gv-gv", opts)
 -- map("x", "K", ":move '<-2<CR>gv-gv")
 
 -- Don't yank when visual select paste

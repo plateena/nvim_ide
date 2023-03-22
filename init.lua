@@ -1,2 +1,3 @@
-require "setup"
+-- require "setup"
+require "zack"
 
